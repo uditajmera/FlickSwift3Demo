@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ttv-GA-LSU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlickSwift3Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,80 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqW-ee-oc2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="9pV-YB-rUF"/>
+                                    <constraint firstAttribute="height" constant="91" id="FSW-Xt-Yg3"/>
+                                </constraints>
+                                <state key="normal" title="Flickr Login"/>
+                                <connections>
+                                    <action selector="flickrButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xyt-RB-qPJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mqW-ee-oc2" secondAttribute="bottom" constant="100" id="5Vh-FR-dNh"/>
+                            <constraint firstItem="mqW-ee-oc2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EBp-yS-meU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="voI-M1-iCU"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <segue destination="V0n-7u-c2E" kind="show" identifier="SegueToAuth" id="gJo-VB-0vG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="960.79999999999995" y="34.632683658170919"/>
+        </scene>
+        <!--Flickr Auth View Controller-->
+        <scene sceneID="Y4r-bM-7pd">
+            <objects>
+                <viewController id="V0n-7u-c2E" customClass="FlickrAuthViewController" customModule="FlickSwift3Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yc9-uO-Hw2"/>
+                        <viewControllerLayoutGuide type="bottom" id="7pM-Vd-oxR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nrj-0s-ehS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFr-G6-tX1">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XFr-G6-tX1" firstAttribute="leading" secondItem="Nrj-0s-ehS" secondAttribute="leadingMargin" id="HOV-vZ-vcV"/>
+                            <constraint firstItem="XFr-G6-tX1" firstAttribute="top" secondItem="Yc9-uO-Hw2" secondAttribute="bottom" id="Nbi-FF-wdf"/>
+                            <constraint firstItem="7pM-Vd-oxR" firstAttribute="top" secondItem="XFr-G6-tX1" secondAttribute="bottom" id="kVI-B1-dbj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFr-G6-tX1" secondAttribute="trailing" id="x4M-3h-hf4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8EJ-1d-D3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="34.632683658170919"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="phF-jn-EDU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ttv-GA-LSU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pVR-FL-34g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="emH-0m-pb4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4K-dz-Wr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.600000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
 </document>
