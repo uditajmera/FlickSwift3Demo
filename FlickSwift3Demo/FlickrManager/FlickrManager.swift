@@ -126,7 +126,9 @@ class FlickrManager: NSObject {
         return larrayPhotosInfo
     }
     
-   public func userPhotosURLs(_ oauthswift: OAuth1Swift, consumerKey: String)
+    public func userPhotosURLs(_ oauthswift: OAuth1Swift, consumerKey: String,
+                               lintPageNumber:Int,
+                               lintPageSize:Int)
     {
         let url :String = "https://api.flickr.com/services/rest/"
         let parameters :Dictionary = [
@@ -135,7 +137,9 @@ class FlickrManager: NSObject {
             "user_id"        : "145498422@N04",
             "format"         : "json",
             "nojsoncallback" : "1",
-            "extras"         : "url_q,url_z"
+            "extras"         : "url_q,url_z",
+            "per_page"       : "\(lintPageSize)",
+            "page"           : "\(lintPageNumber)"
         ]
         
         

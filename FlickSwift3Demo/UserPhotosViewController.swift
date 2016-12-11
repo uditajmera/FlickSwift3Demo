@@ -26,6 +26,10 @@ class UserPhotosViewController: UIViewController,UICollectionViewDataSource, UIC
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 2.5, bottom: 0, right: 2.5)
 
+    var intPageNo:Int = 1
+    var intPageSize:Int = 10
+    
+
     var arrayPhotosURL : NSMutableArray = []
     
     //---------------------------------------------------
@@ -37,7 +41,9 @@ class UserPhotosViewController: UIViewController,UICollectionViewDataSource, UIC
         
         FlickrManager.sharedInstance.delegate = self
         
-        FlickrManager.sharedInstance.userPhotosURLs(FlickrManager.sharedInstance.oauthswift!, consumerKey: FlickrManager.sharedInstance.strApiKey)
+        FlickrManager.sharedInstance.userPhotosURLs(FlickrManager.sharedInstance.oauthswift!, consumerKey: FlickrManager.sharedInstance.strApiKey,
+                                                    lintPageNumber: self.intPageNo,
+                                                    lintPageSize: self.intPageSize)
         
         // Do any additional setup after loading the view.
     }

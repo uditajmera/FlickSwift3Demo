@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +11,7 @@
         <!--Item 2-->
         <scene sceneID="kt0-9m-jvh">
             <objects>
-                <viewController id="lDn-n8-gv2" sceneMemberID="viewController">
+                <viewController id="lDn-n8-gv2" customClass="PhotoUploadViewController" customModule="FlickSwift3Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H96-mT-WUh"/>
                         <viewControllerLayoutGuide type="bottom" id="p6v-LZ-F35"/>
@@ -18,13 +19,60 @@
                     <view key="view" contentMode="scaleToFill" id="h9Q-p5-r2x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BI3-Zz-h7h">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="WLF-Po-v0K"/>
+                                    <constraint firstAttribute="height" constant="220" id="jmF-Ob-AiF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7M0-gd-rcC">
+                                <color key="backgroundColor" red="0.9980931878" green="0.75772172209999999" blue="0.032601628450000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7M0-gd-rcC" secondAttribute="height" multiplier="75:16" id="mgZ-6B-yA2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="picUploadButtonPressed:" destination="lDn-n8-gv2" eventType="touchUpInside" id="xXE-3o-cHG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhj-53-ToB">
+                                <color key="backgroundColor" red="0.31272804739999999" green="0.76564222569999996" blue="0.9700087905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Vhj-53-ToB" secondAttribute="height" multiplier="75:17" id="Va4-aF-0A3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <state key="normal" title="Select Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectImageButtonPressed:" destination="lDn-n8-gv2" eventType="touchUpInside" id="VxI-SD-qmK"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p6v-LZ-F35" firstAttribute="top" secondItem="7M0-gd-rcC" secondAttribute="bottom" constant="8" id="6bU-bD-REf"/>
+                            <constraint firstItem="7M0-gd-rcC" firstAttribute="top" secondItem="Vhj-53-ToB" secondAttribute="bottom" constant="8" id="QZ8-iW-XnK"/>
+                            <constraint firstItem="7M0-gd-rcC" firstAttribute="leading" secondItem="h9Q-p5-r2x" secondAttribute="leading" id="e7y-cv-8LY"/>
+                            <constraint firstItem="Vhj-53-ToB" firstAttribute="leading" secondItem="h9Q-p5-r2x" secondAttribute="leading" id="mOG-LQ-Iph"/>
+                            <constraint firstAttribute="trailing" secondItem="Vhj-53-ToB" secondAttribute="trailing" id="rvB-wd-lOS"/>
+                            <constraint firstAttribute="trailing" secondItem="7M0-gd-rcC" secondAttribute="trailing" id="tae-O1-0F7"/>
+                            <constraint firstItem="BI3-Zz-h7h" firstAttribute="top" secondItem="H96-mT-WUh" secondAttribute="bottom" constant="30" id="uWS-zT-xiS"/>
+                            <constraint firstItem="BI3-Zz-h7h" firstAttribute="centerX" secondItem="h9Q-p5-r2x" secondAttribute="centerX" id="vLm-mL-cP9"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="4Xd-ov-FIJ"/>
+                    <connections>
+                        <outlet property="objUploadingImageView" destination="BI3-Zz-h7h" id="job-RB-wbt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrQ-4s-2JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="-913"/>
+            <point key="canvasLocation" x="1156" y="-913.49325337331345"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Mnq-lM-loc">
