@@ -13,7 +13,7 @@ import UIKit
 import OAuthSwift
 
 class ViewController: OAuthViewController {
-
+    
     lazy var internalWebViewController: WebViewController = {
         let controller = WebViewController()
         #if os(OSX)
@@ -29,19 +29,20 @@ class ViewController: OAuthViewController {
     //---------------------------------------------------
     // MARK: -  Default Methods
     //---------------------------------------------------
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func getURLHandler() -> OAuthSwiftURLHandlerType {
-       
+        
         if internalWebViewController.parent == nil {
             self.addChildViewController(internalWebViewController)
         }
@@ -58,20 +59,22 @@ class ViewController: OAuthViewController {
             accessTokenUrl:  "https://www.flickr.com/services/oauth/access_token"
         )
         
-        FlickrManager.sharedInstance.setAuthSwift(loauthSwift: oauthswift)
         
         oauthswift.authorizeURLHandler = getURLHandler()
         let _ = oauthswift.authorize(
             withCallbackURL: URL(string: "oauth-swift://oauth-callback/flickr")!,
             success: { credential, response, parameters in
                 
-                
-                print(parameters)
-                FlickrManager.sharedInstance.setAuthParameters(ldictParams: parameters as NSDictionary)
-
-//               let larrayPhotosURL:NSArray = FlickrManager.sharedInstance.userPhotosURLs(FlickrManager.sharedInstance.oauthswift!, consumerKey: FlickrManager.sharedInstance.strApiKey)
-                
-               // print(larrayPhotosURL)
+                DispatchQueue.main.async {
+                    
+                    FlickrManager.sharedInstance.setAuthSwift(loauthSwift: oauthswift)
+                    
+                    FlickrManager.sharedInstance.setAuthParameters(ldictParams: parameters as NSDictionary)
+                    
+                    self.performSegue(withIdentifier: "SegueToPhotosTabBar",
+                                      sender: self)
+                    
+                }
                 
             },
             failure: { error in
@@ -89,7 +92,7 @@ class ViewController: OAuthViewController {
         
         doOAuthFlickr()
     }
-
+    
 }
 //---------------------------------------------------
 // MARK: -  END

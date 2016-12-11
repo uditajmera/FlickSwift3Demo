@@ -68,6 +68,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="km3-oN-RAb" id="72i-A0-b2D"/>
+                                    <outlet property="delegate" destination="km3-oN-RAb" id="c3o-qg-SB9"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,6 +142,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <segue destination="V0n-7u-c2E" kind="show" identifier="SegueToAuth" id="gJo-VB-0vG"/>
+                        <segue destination="yoq-OJ-0ao" kind="show" identifier="SegueToPhotosTabBar" id="pxh-qT-MHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

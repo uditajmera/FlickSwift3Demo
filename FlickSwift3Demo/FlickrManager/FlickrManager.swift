@@ -68,6 +68,7 @@ class FlickrManager: NSObject {
         self.strAuthSecret = ldictParams.object(forKey: "oauth_token_secret") as! String
         self.strUserName = ldictParams.object(forKey: "username") as! String
         self.strUserId = ldictParams.object(forKey: "user_nsid") as! String
+        print(self.strUserId)
 
     }
     
@@ -116,8 +117,9 @@ class FlickrManager: NSObject {
         return URL(string: URLString!)!
     }
     
-    open func photoArray(fromResponse response: NSDictionary) -> NSArray
+    open func photoArray(fromResponse response: NSDictionary!) -> NSArray
     {
+        print(response)
         let ldictPhotos:NSDictionary = response.object(forKey: "photos") as! NSDictionary
         let larrayPhotosInfo:NSArray = ldictPhotos.object(forKey: "photo") as! NSArray
         print(larrayPhotosInfo)
@@ -130,7 +132,7 @@ class FlickrManager: NSObject {
         let parameters :Dictionary = [
             "method"         : "flickr.photos.search",
             "api_key"        : consumerKey,
-            "user_id"        : self.strUserId,
+            "user_id"        : "145498422@N04",
             "format"         : "json",
             "nojsoncallback" : "1",
             "extras"         : "url_q,url_z"
@@ -141,7 +143,7 @@ class FlickrManager: NSObject {
             url, parameters: parameters,
             success: { response in
                 
-                DispatchQueue.main.async {
+              //  DispatchQueue.main.async {
                     
                     let larrayPhotosURL:NSMutableArray = NSMutableArray()
 
@@ -150,13 +152,13 @@ class FlickrManager: NSObject {
                     
                     for photoDictionary in photoArray {
                         let photoURL = FlickrManager.sharedInstance.photoURL(for: "m", fromPhotoDictionary: photoDictionary as! NSDictionary)
-                        print(photoURL)
-                        larrayPhotosURL.add(larrayPhotosURL)
+                        print("check->\(photoURL)")
+                        larrayPhotosURL.add(photoURL)
                     }
                     
                     self.delegate?.flickrPhotosURLResponse(larrayPhotoURLs: larrayPhotosURL)
                     
-                }
+               // }
                
             },
             failure: { error in
