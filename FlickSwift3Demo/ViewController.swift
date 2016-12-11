@@ -57,12 +57,22 @@ class ViewController: OAuthViewController {
             authorizeUrl:    "https://www.flickr.com/services/oauth/authorize",
             accessTokenUrl:  "https://www.flickr.com/services/oauth/access_token"
         )
+        
+        FlickrManager.sharedInstance.setAuthSwift(loauthSwift: oauthswift)
+        
         oauthswift.authorizeURLHandler = getURLHandler()
         let _ = oauthswift.authorize(
             withCallbackURL: URL(string: "oauth-swift://oauth-callback/flickr")!,
             success: { credential, response, parameters in
+                
+                
                 print(parameters)
-                self.testFlickr(oauthswift, consumerKey: FlickrManager.sharedInstance.strApiKey)
+                FlickrManager.sharedInstance.setAuthParameters(ldictParams: parameters as NSDictionary)
+
+//               let larrayPhotosURL:NSArray = FlickrManager.sharedInstance.userPhotosURLs(FlickrManager.sharedInstance.oauthswift!, consumerKey: FlickrManager.sharedInstance.strApiKey)
+                
+               // print(larrayPhotosURL)
+                
             },
             failure: { error in
                 print(error.description)
@@ -71,36 +81,6 @@ class ViewController: OAuthViewController {
     }
     
     
-    func testFlickr (_ oauthswift: OAuth1Swift, consumerKey: String) {
-        let url :String = "https://api.flickr.com/services/rest/"
-        let parameters :Dictionary = [
-            "method"         : "flickr.photos.search",
-            "api_key"        : consumerKey,
-            "user_id"        : "145498422@N04",
-            "format"         : "json",
-            "nojsoncallback" : "1",
-            "extras"         : "url_q,url_z"
-        ]
-        let _ = oauthswift.client.get(
-            url, parameters: parameters,
-            success: { response in
-                let jsonDict = try? response.jsonObject()
-               let photoArray = FlickrManager.sharedInstance.photoArray(fromResponse: jsonDict as! [String : Any] as NSDictionary)
-                
-                for photoDictionary in photoArray {
-                    let photoURL = FlickrManager.sharedInstance.photoURL(for: "m", fromPhotoDictionary: photoDictionary as! NSDictionary)
-                    print(photoURL)
-                   // self.photoURLs.append(photoURL)
-                }
-
-                print(jsonDict as Any)
-            },
-            failure: { error in
-                print(error)
-            }
-        )
-    }
-    
     //---------------------------------------------------
     // MARK: -  Button Action
     //---------------------------------------------------
@@ -108,14 +88,6 @@ class ViewController: OAuthViewController {
     @IBAction func flickrButtonPressed(_ sender: AnyObject) {
         
         doOAuthFlickr()
-//        if(FlickrManager.sharedInstance.bAuthorized)
-//        {
-////            FlickrKit.shared().logout()
-////            self.userLoggedOut()
-//        } else
-//        {
-//            self.performSegue(withIdentifier: "SegueToAuth", sender: self)
-//        }
     }
 
 }
