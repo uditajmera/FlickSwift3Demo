@@ -10,7 +10,6 @@
 		67853B867B395321D50983C0 /* Pods_FlickSwift3Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9D678167697AE0B0EBB8DA /* Pods_FlickSwift3Demo.framework */; };
 		C89668A0D9CFBD95383E382A /* Pods_FlickSwift3DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ED4CB9346A9C4C49958964 /* Pods_FlickSwift3DemoUITests.framework */; };
 		FD21C1901DFD093F00501083 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21C18F1DFD093F00501083 /* WebViewController.swift */; };
-		FD21C1921DFD0E8400501083 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD21C1911DFD0E8400501083 /* Services.swift */; };
 		FD3BF7041DFBE98900D6E8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF7031DFBE98900D6E8BE /* AppDelegate.swift */; };
 		FD3BF7061DFBE98900D6E8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF7051DFBE98900D6E8BE /* ViewController.swift */; };
 		FD3BF7091DFBE98900D6E8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF7071DFBE98900D6E8BE /* Main.storyboard */; };
@@ -39,7 +38,6 @@
 		F63BD5C3A53D3F8F4DEEA73E /* Pods-FlickSwift3DemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickSwift3DemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickSwift3DemoUITests/Pods-FlickSwift3DemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F8EC606443E306E3DAD6DEA9 /* Pods-FlickSwift3Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickSwift3Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickSwift3Demo/Pods-FlickSwift3Demo.release.xcconfig"; sourceTree = "<group>"; };
 		FD21C18F1DFD093F00501083 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		FD21C1911DFD0E8400501083 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		FD3BF7001DFBE98900D6E8BE /* FlickSwift3Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSwift3Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BF7031DFBE98900D6E8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD3BF7051DFBE98900D6E8BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 		FD3BF7021DFBE98900D6E8BE /* FlickSwift3Demo */ = {
 			isa = PBXGroup;
 			children = (
-				FD21C1911DFD0E8400501083 /* Services.swift */,
 				FD21C18F1DFD093F00501083 /* WebViewController.swift */,
 				FD3BF7031DFBE98900D6E8BE /* AppDelegate.swift */,
 				FD3BF7051DFBE98900D6E8BE /* ViewController.swift */,
@@ -351,7 +348,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD3BF7061DFBE98900D6E8BE /* ViewController.swift in Sources */,
-				FD21C1921DFD0E8400501083 /* Services.swift in Sources */,
 				FD3BF72B1DFBFE0B00D6E8BE /* FlickrAuthViewController.swift in Sources */,
 				FD3BF7291DFBECF700D6E8BE /* FlickrManager.swift in Sources */,
 				FD21C1901DFD093F00501083 /* WebViewController.swift in Sources */,

@@ -13,10 +13,6 @@ import UIKit
 import OAuthSwift
 
 class ViewController: OAuthViewController {
-    // oauth swift object (retain)
-    var oauthswift: OAuth1Swift?
-
-    let services = Services()
 
     lazy var internalWebViewController: WebViewController = {
         let controller = WebViewController()
@@ -52,33 +48,6 @@ class ViewController: OAuthViewController {
         return internalWebViewController
     }
     
-    func showAlertView(title: String, message: String) {
-        #if os(iOS)
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        #elseif os(OSX)
-            let alert = NSAlert()
-            alert.messageText = title
-            alert.informativeText = message
-            alert.addButton(withTitle: "Close")
-            alert.runModal()
-        #endif
-    }
-    
-    func showTokenAlert(name: String?, credential: OAuthSwiftCredential) {
-        var message = "oauth_token:\(credential.oauthToken)"
-        if !credential.oauthTokenSecret.isEmpty {
-            message += "\n\noauth_token_secret:\(credential.oauthTokenSecret)"
-        }
-        self.showAlertView(title: name ?? "Service", message: message)
-        
-        if let service = name {
-            services.updateService(service, dico: ["authentified":"1"])
-            // TODO refresh graphic
-        }
-    }
-
     
     func doOAuthFlickr(){
         let oauthswift = OAuth1Swift(
@@ -88,13 +57,11 @@ class ViewController: OAuthViewController {
             authorizeUrl:    "https://www.flickr.com/services/oauth/authorize",
             accessTokenUrl:  "https://www.flickr.com/services/oauth/access_token"
         )
-        self.oauthswift = oauthswift
         oauthswift.authorizeURLHandler = getURLHandler()
         let _ = oauthswift.authorize(
             withCallbackURL: URL(string: "oauth-swift://oauth-callback/flickr")!,
             success: { credential, response, parameters in
                 print(parameters)
-                self.showTokenAlert(name: "Flickr", credential: credential)
                 self.testFlickr(oauthswift, consumerKey: FlickrManager.sharedInstance.strApiKey)
             },
             failure: { error in
@@ -178,6 +145,6 @@ extension ViewController: OAuthWebViewControllerDelegate {
     }
     func oauthWebViewControllerDidDisappear() {
         // Ensure all listeners are removed if presented web view close
-        oauthswift?.cancel()
+        FlickrManager.sharedInstance.oauthswift?.cancel()
     }
 }
