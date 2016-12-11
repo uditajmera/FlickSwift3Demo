@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,13 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        let scheme = url.scheme
-        if("FlickrSwiftDemo" == scheme) {
-            // I don't recommend doing it like this, it's just a demo... I use an authentication
-            // controller singleton object in my projects
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "UserAuthCallbackNotification"), object: url)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if (url.host == "oauth-callback") {
+            OAuthSwift.handle(url: url)
         }
+        
         return true
     }
 
