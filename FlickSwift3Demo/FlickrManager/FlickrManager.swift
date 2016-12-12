@@ -68,7 +68,7 @@ class FlickrManager: NSObject {
         self.strAuthSecret = ldictParams.object(forKey: "oauth_token_secret") as! String
         self.strUserName = ldictParams.object(forKey: "username") as! String
         self.strUserId = ldictParams.object(forKey: "user_nsid") as! String
-        print(self.strUserId)
+        self.strUserId = self.strUserId.removingPercentEncoding!
 
     }
     
@@ -134,7 +134,7 @@ class FlickrManager: NSObject {
         let parameters :Dictionary = [
             "method"         : "flickr.photos.search",
             "api_key"        : consumerKey,
-            "user_id"        : "145498422@N04",
+            "user_id"        : self.strUserId,
             "format"         : "json",
             "nojsoncallback" : "1",
             "extras"         : "url_q,url_z",
@@ -164,6 +164,69 @@ class FlickrManager: NSObject {
                     
                // }
                
+            },
+            failure: { error in
+                print(error)
+            }
+        )
+    }
+    
+    
+    public func uploadPhotosURLs(_ oauthswift: OAuth1Swift,
+                                 consumerKey: String,
+                                 lobjImageToUpload:UIImage)
+    {
+        
+        /*
+         photo
+         The file to upload.
+         title (optional)
+         The title of the photo.
+         description (optional)
+         A description of the photo. May contain some limited HTML.
+         tags (optional)
+         A space-seperated list of tags to apply to the photo.
+         is_public, is_friend, is_family (optional)
+         Set to 0 for no, 1 for yes. Specifies who can view the photo.
+         safety_level (optional)
+         Set to 1 for Safe, 2 for Moderate, or 3 for Restricted.
+         content_type (optional)
+         Set to 1 for Photo, 2 for Screenshot, or 3 for Other.
+         hidden (optional)
+         Set to 1 to keep the photo in global search results, 2 to hide from public searches.
+         */
+        let url :String = "https://up.flickr.com/services/upload/"
+        let parameters :Dictionary = [
+            "method"         : "flickr.photos.search",
+            "api_key"        : consumerKey,
+            "user_id"        : self.strUserId,
+            "format"         : "json",
+            "nojsoncallback" : "1",
+            "extras"         : "url_q,url_z"
+        ]
+        
+        
+        let _ = oauthswift.client.get(
+            url, parameters: parameters,
+            success: { response in
+                
+                //  DispatchQueue.main.async {
+                
+                let larrayPhotosURL:NSMutableArray = NSMutableArray()
+                
+                let jsonDict = try? response.jsonObject()
+                let photoArray = FlickrManager.sharedInstance.photoArray(fromResponse: jsonDict as! [String : Any] as NSDictionary)
+                
+                for photoDictionary in photoArray {
+                    let photoURL = FlickrManager.sharedInstance.photoURL(for: "m", fromPhotoDictionary: photoDictionary as! NSDictionary)
+                    print("check->\(photoURL)")
+                    larrayPhotosURL.add(photoURL)
+                }
+                
+                self.delegate?.flickrPhotosURLResponse(larrayPhotoURLs: larrayPhotosURL)
+                
+                // }
+                
             },
             failure: { error in
                 print(error)
