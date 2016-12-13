@@ -121,21 +121,23 @@ class PhotoUploadViewController: UIViewController,UIImagePickerControllerDelegat
     @IBAction func picUploadButtonPressed(_ sender: AnyObject)
     {
         
-        let parameters =  Dictionary<String, AnyObject>()
-        let image_data = UIImageJPEGRepresentation(self.objUploadingImageView.image!, 0.5)
-        // Multi-part upload
-        let _ = FlickrManager.sharedInstance.oauthswift?.client.postImage(
-            "https://up.flickr.com/services/upload/", parameters: parameters, image: image_data!,
-            success: { response in
-                let jsonDict = try? response.jsonObject()
-                print("SUCCESS: \(jsonDict)")
-                print("SUCCESS: \(response)")
-
-            },
-            failure: { error in
-                print(error)
-            }
-        )
+        FlickrManager.sharedInstance.uploadPhotosURLs1(lobjImageToUpload: self.objUploadingImageView.image!)
+        
+//        let parameters =  Dictionary<String, AnyObject>()
+//        let image_data = UIImageJPEGRepresentation(self.objUploadingImageView.image!, 0.5)
+//        // Multi-part upload
+//        let _ = FlickrManager.sharedInstance.oauthswift?.client.postImage(
+//            "https://up.flickr.com/services/upload/", parameters: parameters, image: image_data!,
+//            success: { response in
+//                let jsonDict = try? response.jsonObject()
+//                print("SUCCESS: \(jsonDict)")
+//                print("SUCCESS: \(response)")
+//
+//            },
+//            failure: { error in
+//                print(error)
+//            }
+//        )
 //        let url = NSURL(string: "https://up.flickr.com/services/upload/")
 //
 //        var request = URLRequest(url: url! as URL)

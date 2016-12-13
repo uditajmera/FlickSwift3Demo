@@ -60,5 +60,10 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>use library for image access</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

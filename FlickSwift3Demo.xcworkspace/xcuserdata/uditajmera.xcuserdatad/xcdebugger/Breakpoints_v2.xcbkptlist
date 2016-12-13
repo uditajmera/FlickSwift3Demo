@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickSwift3Demo/PhotoUploadViewController.swift"
-            timestampString = "503156837.362663"
+            timestampString = "503302619.685621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "picUploadButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,12 +26,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickSwift3Demo/PhotoUploadViewController.swift"
-            timestampString = "503157088.240321"
+            timestampString = "503302619.685621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "picUploadButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+            timestampString = "503308136.144171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "uploadPhotosURLs1(lobjImageToUpload:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickSwift3Demo.FlickrManager.(uploadPhotosURLs1 (lobjImageToUpload : __ObjC.UIImage) -&gt; ()).(closure #1)"
+                  moduleName = "FlickSwift3Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uditajmera/Documents/FlickSwift3Demo/FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+                  timestampString = "503308472.515713"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickSwift3Demo.FlickrManager.(uploadPhotosURLs1 (lobjImageToUpload : __ObjC.UIImage) -&gt; ()).(closure #1)"
+                  moduleName = "FlickSwift3Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uditajmera/Documents/FlickSwift3Demo/FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+                  timestampString = "503308472.517927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+            timestampString = "503308136.144171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "uploadPhotosURLs1(lobjImageToUpload:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickSwift3Demo.FlickrManager.(uploadPhotosURLs1 (lobjImageToUpload : __ObjC.UIImage) -&gt; ()).(closure #1)"
+                  moduleName = "FlickSwift3Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uditajmera/Documents/FlickSwift3Demo/FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+                  timestampString = "503308472.524827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "379">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickSwift3Demo.FlickrManager.(uploadPhotosURLs1 (lobjImageToUpload : __ObjC.UIImage) -&gt; ()).(closure #1)"
+                  moduleName = "FlickSwift3Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uditajmera/Documents/FlickSwift3Demo/FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+                  timestampString = "503308472.527963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "436">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickSwift3Demo/FlickrManager/FlickrManager.swift"
+            timestampString = "503308136.144171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "uploadPhotosURLs1(lobjImageToUpload:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
