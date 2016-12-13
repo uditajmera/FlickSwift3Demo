@@ -253,7 +253,7 @@ class FlickrManager: NSObject {
         
         
         let boundary = String("---------------------------7d44e178b0434")
-        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.addValue(" multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         let body:NSMutableData = NSMutableData()
         body.append("\r\n--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
@@ -273,8 +273,11 @@ class FlickrManager: NSObject {
 
         body.append(imageData!)
         body.append("\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
-        request.httpBody = body as Data
         
+        request.httpBody = Data(body.subdata(with: NSRange(location: 0, length: body.length)))
+
+        print(request.httpBody?.count)
+
         let session = URLSession.shared
         
         let task = session.dataTask(with: request as URLRequest,

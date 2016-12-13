@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--UploadImage-->
         <scene sceneID="kt0-9m-jvh">
             <objects>
                 <viewController id="lDn-n8-gv2" customClass="PhotoUploadViewController" customModule="FlickSwift3Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <constraint firstItem="BI3-Zz-h7h" firstAttribute="centerX" secondItem="h9Q-p5-r2x" secondAttribute="centerX" id="vLm-mL-cP9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="4Xd-ov-FIJ"/>
+                    <tabBarItem key="tabBarItem" title="UploadImage" id="4Xd-ov-FIJ"/>
                     <connections>
                         <outlet property="objUploadingImageView" destination="BI3-Zz-h7h" id="job-RB-wbt"/>
                     </connections>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1156" y="-913.49325337331345"/>
         </scene>
-        <!--Item 1-->
+        <!--UserPics-->
         <scene sceneID="Mnq-lM-loc">
             <objects>
                 <viewController id="km3-oN-RAb" customClass="UserPhotosViewController" customModule="FlickSwift3Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,7 +130,7 @@
                             <constraint firstItem="mdf-hc-7n7" firstAttribute="top" secondItem="41C-ji-NZC" secondAttribute="bottom" id="yCm-6x-8qZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="pMP-cr-K4k"/>
+                    <tabBarItem key="tabBarItem" title="UserPics" id="pMP-cr-K4k"/>
                     <connections>
                         <outlet property="objUserPhotosCollectionView" destination="41C-ji-NZC" id="uQd-Nb-3wv"/>
                     </connections>

@@ -120,79 +120,13 @@ class PhotoUploadViewController: UIViewController,UIImagePickerControllerDelegat
 
     @IBAction func picUploadButtonPressed(_ sender: AnyObject)
     {
+        if self.objUploadingImageView.image == nil
+        {
+            return
+        }
         
         FlickrManager.sharedInstance.uploadPhotosURLs1(lobjImageToUpload: self.objUploadingImageView.image!)
         
-//        let parameters =  Dictionary<String, AnyObject>()
-//        let image_data = UIImageJPEGRepresentation(self.objUploadingImageView.image!, 0.5)
-//        // Multi-part upload
-//        let _ = FlickrManager.sharedInstance.oauthswift?.client.postImage(
-//            "https://up.flickr.com/services/upload/", parameters: parameters, image: image_data!,
-//            success: { response in
-//                let jsonDict = try? response.jsonObject()
-//                print("SUCCESS: \(jsonDict)")
-//                print("SUCCESS: \(response)")
-//
-//            },
-//            failure: { error in
-//                print(error)
-//            }
-//        )
-//        let url = NSURL(string: "https://up.flickr.com/services/upload/")
-//
-//        var request = URLRequest(url: url! as URL)
-//        
-//        request.httpMethod = "POST"
-//        
-//        let boundary = generateBoundaryString()
-//        
-//        request.setValue("multipart/form-data; boundary=\(boundary)",
-//            forHTTPHeaderField: "Content-Type")
-//        
-//        if (self.objUploadingImageView.image == nil)
-//        { return }
-//        
-//        let image_data = UIImagePNGRepresentation(self.objUploadingImageView.image!)
-//        let body = NSMutableData()
-//        let fname = "porch-167.png"
-//        let mimetype = "image/png"
-//        
-//        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-//        
-//        body.append("Content-Disposition:form-data;name=\"photo\"\r\n\r\n".data(using: String.Encoding.utf8)!)
-//        
-//        body.append("Incoming\r\n".data(using: String.Encoding.utf8)!)
-//        
-//        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-//        
-//        body.append("Content-Disposition:form-data; name=\"file\";filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
-//        body.append("Content-Type: \(mimetype)\r\n\r\n".data(using:
-//            String.Encoding.utf8)!)
-//        body.append(image_data!)
-//        body.append("\r\n".data(using: String.Encoding.utf8)!)
-//        body.append("--\(boundary)--\r\n".data(using:
-//            String.Encoding.utf8)!)
-//        request.httpBody = body as Data
-//        
-//        let session = URLSession.shared
-//        
-//        let task = session.dataTask(with: request as URLRequest) {
-//            (
-//            data, response, error) in
-//            
-//            guard let _:Data = data, let _:URLResponse = response , error
-//                == nil else {
-//                    print("error")
-//                    return
-//            }
-//            
-//            let dataString = String(data: data!, encoding: 
-//                String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-//            print(dataString)
-//            
-//        }
-//        
-//        task.resume()
     
     }
 
